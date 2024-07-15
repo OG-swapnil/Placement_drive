@@ -1,0 +1,10 @@
+class Solution {
+    public String intToRoman(int num) {
+        String ons[] = {"","I","II","III","IV","V","VI","VII","VIII","IX"};
+        String tns[] = {"","X","XX","XXX","XL","L","LX","LXX","LXXX","XC"};
+        String hds[] = {"","C","CC","CCC","CD","D","DC","DCC","DCCC","CM"};
+        String ths[] = {"","M","MM","MMM"};
+
+        return ths[num/1000] + hds[(num%1000)/100] + tns[(num%100)/10] + ons[num%10];
+    }
+}
