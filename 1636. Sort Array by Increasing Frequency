@@ -1,0 +1,27 @@
+class Solution {
+    public int[] frequencySort(int[] nums) {
+        Map<Integer, Integer> numFreqMp = new HashMap<>();
+        for(var num : nums){
+            numFreqMp.put(num, numFreqMp.getOrDefault(num, 0)+1);
+        }
+        int mappingSize = numFreqMp.size();
+        int freqNum[][] = new int[mappingSize][2];
+        int indx = 0;
+        for(var entry : numFreqMp.entrySet()){
+            freqNum[indx++] = new int[]{entry.getValue(), entry.getKey()};
+        }
+        Arrays.sort(freqNum, (a, b)->{
+            if(a[0] != b[0]){
+                return a[0] - b[0];
+            }else return b[1] - a[1];
+        });
+        List<Integer> res = new ArrayList<>();
+        for(var pair : freqNum){
+            int freq = pair[0], num = pair[1];
+            while(freq-->0){
+                res.add(num);
+            }
+        } 
+        return res.stream().mapToInt(Integer::intValue).toArray();
+    }
+}
