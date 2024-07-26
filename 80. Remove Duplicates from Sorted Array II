@@ -1,0 +1,30 @@
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for(int num : nums){
+            map.put(num,map.getOrDefault(num,0)+1);
+        }
+        int j=0;
+        for(int i:map.keySet()){
+            if(map.get(i)>=2){
+                nums[j]=i;
+                j++;
+                nums[j]=i;
+                j++;
+            }
+            if(map.get(i)==1){
+                nums[j]=i;
+                j++;
+            }
+        }
+        int num[] = new int[j];
+        for(int i=0;i<j;i++){
+            num[i] = nums[i];
+        }
+        Arrays.sort(num);
+        for(int i=0;i<j;i++){
+            nums[i] = num[i];
+        }
+        return j;
+    }
+}
