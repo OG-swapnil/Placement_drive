@@ -1,4 +1,19 @@
-int first = Integer.MAX_VALUE, second = Integer.MAX_VALUE;
+class Solution {
+    public boolean increasingTriplet(int[] nums) {
+        //brute force -----> TLE
+        // int n=nums.length;
+        // for(int i=0;i<n;i++){
+        //     for(int j=i+1;j<n;j++){
+        //         for(int k=j+1;k<n;k++){
+        //             if(nums[i]< nums[j] && nums[j]< nums[k]){
+        //                 return true;
+        //             }
+        //         }
+        //     }
+        // }
+        // return false;
+        //New Approach
+        int first = Integer.MAX_VALUE, second = Integer.MAX_VALUE;
 
         for (int num : nums) {
             if (num <= first) {
@@ -11,3 +26,5 @@ int first = Integer.MAX_VALUE, second = Integer.MAX_VALUE;
         }
 
         return false; 
+    }
+}
